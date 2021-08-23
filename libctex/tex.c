@@ -162,8 +162,9 @@ extern int tex_check_header(tex_file_t *file) {
 
 extern int tex_check_header_version(tex_file_t *file, uint8_t flags) {
 	uint8_t r = 1;
-	if(flags & TVF_IS_BC1) r = r && (file->version == 0x13 && file->version2 == 0x00);
-	if(flags & TVF_IS_BC7) r = r && (file->version == 0x36 && (file->version2 == 0x20 || file->version2 == 0x80));
+	if(flags & TVF_IS_BC1)    r = r && (file->version == 0x13 && file->version2 == 0x00);
+	if(flags & TVF_IS_SWITCH) r = r && (file->version == 0x00);
+	if(flags & TVF_IS_BC7)    r = r && (file->version == 0x36 && (file->version2 == 0x20 || file->version2 == 0x80));
 	if(flags & TVF_IS_BROKEN) r = r && (file->version2 == 0x80);
 
 	return r;

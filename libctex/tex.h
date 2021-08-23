@@ -28,7 +28,7 @@ typedef struct {
 	  offset;  /* Where the image data begins. */
 
 	uint8_t  
-	  version,  /* The version. For BC1 images, 0x13. For BC7 images, 0x36. */ 
+	  version,  /* The version. For BC1 images, 0x13. For BC7 images, 0x36. For Switch images, 0x02.*/ 
 	  version2; /* A byte in the header. Purpose unknown, however, 
 	             * BC1 = 0x00, BC7 = 0x20, Broken BC7 = 0x80. */
 	uint32_t
@@ -52,7 +52,8 @@ extern int tex_check_header(tex_file_t *file);
 #define TVF_IS_BC1     1
 #define TVF_IS_BC7     2
 #define TVF_IS_BROKEN  4
-#define TVF_IS_UNKNOWN 8
+#define TVF_IS_SWITCH  8
+#define TVF_IS_UNKNOWN 16
 extern int tex_check_header_version(tex_file_t *file, uint8_t flags);
 
 /* gets a BC1-compressed block and turns it into a pixel array. */

@@ -22,7 +22,7 @@ LIBOBJ = tex.o
 all: ctextoppm
 
 ctextoppm: libctex.a
-	$(CC) $(CFLAGS) -Wall ctextoppm.c -octextoppm -L. -I. -lnetpbm -lctex
+	$(CC) $(CFLAGS) -Wall ctextoppm.c -octextoppm -L. -I. -lnetpbm -lctex -lm
 
 tex.o:
 	$(CC) $(CFLAGS) -Wall -c libctex/tex.c -otex.o

@@ -23,7 +23,13 @@ int main(int argc, char **argv) {
     }
 
     if(!tex_check_header_version(&infile, TVF_IS_BC1)) {
-    	printf("Input is not BC1.");
+    	printf("Input is not BC1.\n");
+    	printf("offset: %d\n", infile.offset);
+    	printf("version: %d\n", infile.version);
+    	printf("version2: %d\n", infile.version2);
+    	printf("cols: %d\n", infile.cols);
+    	printf("rows: %d\n", infile.rows);
+
     	return 1;
     }
 
